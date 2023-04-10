@@ -4,12 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/bindings/authBinding.dart';
 import 'package:flutter_application_1/firebase_options.dart';
 import 'package:flutter_application_1/routes/routes.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+
 import 'package:get_storage/get_storage.dart';
 
-import 'controller/auth_controller.dart';
-import 'views/screens/login_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,8 +24,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    // Register AuthController instance
-    Get.put(AuthController());
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'First Method',
@@ -35,12 +31,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      // home: LoginScreen(),
+      // home: MyHomeScreen(),
       initialRoute: FirebaseAuth.instance.currentUser != null ||
               GetStorage().read<bool>('auth') == true
           ? Routes.myhomescreen
           : AppRoutes.loginscreen,
-      //initialBinding: AuthBinding(),
+      initialBinding: AuthBinding(),
       getPages: AppRoutes.routes,
     );
   }

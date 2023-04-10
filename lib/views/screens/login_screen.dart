@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/views/screens/signup_screen.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../controller/auth_controller.dart';
@@ -18,6 +17,7 @@ class LoginScreen extends StatelessWidget {
   final TextEditingController passwordController = TextEditingController();
 
   final controller = Get.find<AuthController>();
+  //AuthController controller = Get.put(AuthController());
 
   @override
   Widget build(BuildContext context) {
@@ -193,7 +193,7 @@ class LoginScreen extends StatelessWidget {
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
                           text: "OR",
-                          color:  Colors.black,
+                          color: Colors.black,
                           underLine: TextDecoration.none,
                         ),
                         const SizedBox(

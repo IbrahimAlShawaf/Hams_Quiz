@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TextUtils extends StatelessWidget {
@@ -26,7 +25,7 @@ class TextUtils extends StatelessWidget {
         textStyle: TextStyle(
           decoration: underLine,
           color: color,
-          fontSize: fontSize.sp,
+          fontSize: fontSize,
           fontWeight: fontWeight,
         ),
       ),
