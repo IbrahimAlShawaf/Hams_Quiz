@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "696424962731",
+    "project_id": "hams-quiz",
+    "storage_bucket": "hams-quiz.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:696424962731:android:ae55e27e70fe403d6035ee",
+        "android_client_info": {
+          "package_name": "com.hams.flutter_application_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "696424962731-lj1jj9q277qvkusd8uji9j27chrj44nr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6xpsZ8aYuWzI28vJeYGMgftfBA33QF0c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "696424962731-lj1jj9q277qvkusd8uji9j27chrj44nr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
