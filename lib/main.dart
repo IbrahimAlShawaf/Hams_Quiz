@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
       // home: MyHomeScreen(),
       initialRoute: FirebaseAuth.instance.currentUser != null ||
               GetStorage().read<bool>('auth') == true
-          ? Routes.myhomescreen
+          ? Routes.mainscreen
           : AppRoutes.loginscreen,
       initialBinding: AuthBinding(),
       getPages: AppRoutes.routes,

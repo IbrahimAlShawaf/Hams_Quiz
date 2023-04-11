@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/views/widgets/build_card.dart';
-import 'package:flutter_application_1/views/widgets/donut_tile.dart';
 import 'package:get/get.dart';
 
 import '../../controller/auth_controller.dart';
+import '../../model/product_model.dart';
 
 class MyHomeScreen extends StatefulWidget {
   MyHomeScreen({super.key});
@@ -16,17 +16,49 @@ class _MyHomeScreenState extends State<MyHomeScreen>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
-  // list of donuts
-  List donutsOnSale = [
-    // [ donutFlavor, donutPrice, donutColor, imageName ]
-    ["Ice Cream", "36", Colors.blue, "assets/images/icecream_donut.png"],
-    ["Strawberry", "45", Colors.red, "assets/images/strawberry_donut.png"],
-    ["Grape Ape", "84", Colors.purple, "assets/images/grape_donut.png"],
-    ["Choco", "95", Colors.brown, "assets/images/chocolate_donut.png"],
-    ["Ice Cream", "36", Colors.blue, "assets/images/icecream_donut.png"],
-    ["Strawberry", "45", Colors.red, "assets/images/strawberry_donut.png"],
-    ["Grape Ape", "84", Colors.purple, "assets/images/grape_donut.png"],
-    ["Choco", "95", Colors.brown, "assets/images/chocolate_donut.png"],
+  List<Product> products = [
+    Product(
+      name: 'Product 1',
+      description: 'This is product 1.',
+      price: 9.99,
+      imageUrl:
+          'https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Ym9va3xlbnwwfHwwfHw%3D&w=1000&q=80',
+    ),
+    Product(
+      name: 'Product 2',
+      description: 'This is product 2.',
+      price: 19.99,
+      imageUrl:
+          'https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Ym9va3xlbnwwfHwwfHw%3D&w=1000&q=80',
+    ),
+    Product(
+      name: 'Product 3',
+      description: 'This is product 3.',
+      price: 29.99,
+      imageUrl:
+          'https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Ym9va3xlbnwwfHwwfHw%3D&w=1000&q=80',
+    ),
+    Product(
+      name: 'Product 4',
+      description: 'This is product 4.',
+      price: 29.99,
+      imageUrl:
+          'https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Ym9va3xlbnwwfHwwfHw%3D&w=1000&q=80',
+    ),
+    Product(
+      name: 'Product 5',
+      description: 'This is product 5.',
+      price: 29.99,
+      imageUrl:
+          'https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Ym9va3xlbnwwfHwwfHw%3D&w=1000&q=80',
+    ),
+    Product(
+      name: 'Product 6',
+      description: 'This is product 6.',
+      price: 29.99,
+      imageUrl:
+          'https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Ym9va3xlbnwwfHwwfHw%3D&w=1000&q=80',
+    ),
   ];
 
   @override
@@ -43,7 +75,6 @@ class _MyHomeScreenState extends State<MyHomeScreen>
 
   final controller = Get.find<AuthController>();
 
-  //AuthController controller = Get.put(AuthController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -89,7 +120,7 @@ class _MyHomeScreenState extends State<MyHomeScreen>
           SizedBox(
             height: 140,
             child: ListView.separated(
-              shrinkWrap: true,
+              //shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               padding: const EdgeInsets.all(12),
               itemBuilder: (context, index) {
@@ -153,21 +184,53 @@ class _MyHomeScreenState extends State<MyHomeScreen>
           ),
           Expanded(
             child: GridView.builder(
-              itemCount: donutsOnSale.length,
-              padding: const EdgeInsets.all(12),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                childAspectRatio: 1 / 1.5,
-              ),
-              itemBuilder: (context, index) {
-                return DonutTile(
-                  donutFlavor: donutsOnSale[index][0],
-                  donutPrice: donutsOnSale[index][1],
-                  donutColor: donutsOnSale[index][2],
-                  imageName: donutsOnSale[index][3],
-                );
-              },
-            ),
+                itemCount: products.length,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                ),
+                itemBuilder: (BuildContext context, int index) {
+                  return Card(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: <Widget>[
+                        Image.network(
+                          products[index].imageUrl,
+                          height: 120,
+                          width: 120,
+                          fit: BoxFit.cover,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                products[index].name,
+                                style: const TextStyle(fontSize: 16.0),
+                              ),
+                              const Icon(Icons.favorite_outline)
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                          child: Text(
+                            '\$${products[index].price.toStringAsFixed(2)}',
+                            style: const TextStyle(
+                                fontSize: 14.0, color: Colors.grey),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                          child: Text(
+                            products[index].description,
+                            style: const TextStyle(fontSize: 12.0),
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                }),
           ),
         ],
       ),

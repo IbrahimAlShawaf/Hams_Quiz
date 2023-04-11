@@ -1,4 +1,5 @@
 import 'package:flutter_application_1/views/screens/MyHomeScreen.dart';
+import 'package:flutter_application_1/views/screens/main_screen.dart';
 import 'package:get/get.dart';
 
 import '../bindings/authBinding.dart';
@@ -9,6 +10,7 @@ class AppRoutes {
   // initial route
   static const loginscreen = Routes.loginscreen;
   static const myhomescreen = Routes.myhomescreen;
+  static const mainscreen = Routes.mainscreen;
 
   // get page
   static final routes = [
@@ -27,6 +29,11 @@ class AppRoutes {
       page: () => MyHomeScreen(),
       binding: AuthBinding(),
     ),
+    GetPage(
+      name: Routes.mainscreen,
+      page: () => const MyMainScreen(),
+      binding: AuthBinding(),
+    ),
   ];
 }
 
@@ -35,4 +42,5 @@ class Routes {
   static const loginscreen = '/loginscreen';
   static const signupscreen = '/signupscreen';
   static const myhomescreen = '/myhomescreen';
+  static const mainscreen = '/mainscreen';
 }
