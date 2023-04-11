@@ -15,7 +15,6 @@ class MyHomeScreen extends StatefulWidget {
 
 class _MyHomeScreenState extends State<MyHomeScreen>
     with SingleTickerProviderStateMixin {
-  
   late TabController _tabController;
 
   List<Product> products = [
@@ -242,11 +241,27 @@ class _MyHomeScreenState extends State<MyHomeScreen>
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: <Widget>[
-                        Image.asset(
-                          products[index].imageUrl,
-                          height: 120,
-                          width: 120,
-                          fit: BoxFit.cover,
+                        Stack(
+                          fit: StackFit.passthrough,
+                          children: [
+                            Image.asset(
+                              products[index].imageUrl,
+                              height: 120,
+                              width: 120,
+                              fit: BoxFit.cover,
+                            ),
+                            Positioned(
+                              top: 0,
+                              right: 0,
+                              child: IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    Icons.favorite,
+                                    color: Colors.red,
+                                    size: 30,
+                                  )),
+                            )
+                          ],
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -257,7 +272,6 @@ class _MyHomeScreenState extends State<MyHomeScreen>
                                 products[index].name,
                                 style: const TextStyle(fontSize: 16.0),
                               ),
-                              
                             ],
                           ),
                         ),

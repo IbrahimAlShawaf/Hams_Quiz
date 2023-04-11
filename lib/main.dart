@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/bindings/authBinding.dart';
 import 'package:flutter_application_1/firebase_options.dart';
 import 'package:flutter_application_1/routes/routes.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import 'package:get_storage/get_storage.dart';
 
 import 'controller/auth_controller.dart';
-
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,14 +17,19 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp( MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-    final controller = Get.put(AuthController());
+  final controller = Get.put(AuthController());
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return ScreenUtilInit(
+        designSize: const Size(360, 690),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        builder: (context , child){
+             return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'First Method',
       // You can use the library anywhere in the app even in theme
@@ -39,5 +44,7 @@ class MyApp extends StatelessWidget {
       initialBinding: AuthBinding(),
       getPages: AppRoutes.routes,
     );
+        });
+    
   }
 }

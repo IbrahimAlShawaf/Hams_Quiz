@@ -28,41 +28,38 @@ class _MyMainScreenState extends State<MyMainScreen> {
     return Scaffold(
       body: _children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: const Color(0xffF3651F),
+        unselectedItemColor: Colors.blueGrey.shade200,
         currentIndex: _currentIndex,
         //type: BottomNavigationBarType.fixed,
         items: [
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.list,
-                color: Colors.blueGrey.shade200,
                 size: 35,
               ),
               label: ''),
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.search,
-                color: Colors.blueGrey.shade200,
                 size: 35,
               ),
               label: ''),
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.home,
-                color: const Color(0xffF3651F),
                 size: 35,
               ),
               label: ''),
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.favorite,
-                color: Colors.blueGrey.shade200,
                 size: 35,
               ),
               label: ''),
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.settings,
-                color: Colors.blueGrey.shade200,
                 size: 35,
               ),
               label: ''),
