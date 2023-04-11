@@ -19,7 +19,7 @@ class _MyMainScreenState extends State<MyMainScreen> {
     const ListScreen(),
     const SearchScreen(),
     MyHomeScreen(),
-     FavoriteScreen(),
+    FavoriteScreen(),
     const SettingsScreen(),
   ];
 
@@ -48,7 +48,7 @@ class _MyMainScreenState extends State<MyMainScreen> {
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.home,
-                color: Colors.blueGrey.shade200,
+                color: const Color(0xffF3651F),
                 size: 35,
               ),
               label: ''),

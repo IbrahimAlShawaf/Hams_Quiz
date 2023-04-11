@@ -4,15 +4,15 @@ class AuthTextFromField extends StatelessWidget {
   final TextEditingController controller;
   final bool obscureText;
   final Function validator;
-  final Widget prefixIcon;
-  final Widget suffixIcon;
+  final Widget? prefixIcon;
+  final Widget? suffixIcon;
   final String hintText;
   const AuthTextFromField( {
     required this.controller,
     required this.obscureText,
     required this.validator,
-    required this.prefixIcon,
-    required this.suffixIcon,
+     this.prefixIcon,
+     this.suffixIcon,
     required this.hintText,
     Key? key,
   }) : super(key: key);

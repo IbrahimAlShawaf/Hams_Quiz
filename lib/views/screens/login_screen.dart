@@ -186,48 +186,6 @@ class LoginScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        const SizedBox(
-                          height: 30,
-                        ),
-                        const TextUtils(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
-                          text: "OR",
-                          color: Colors.black,
-                          underLine: TextDecoration.none,
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            InkWell(
-                              onTap: () {},
-                              child: Image.asset(
-                                "assets/images/facebook.png",
-                              ),
-                            ),
-                            const SizedBox(
-                              width: 15,
-                            ),
-                            InkWell(
-                              onTap: () {},
-                              child: Image.asset(
-                                "assets/images/google.png",
-                              ),
-                            ),
-                            const SizedBox(
-                              width: 15,
-                            ),
-                            InkWell(
-                              onTap: () {},
-                              child: Image.asset(
-                                "assets/images/google.png",
-                              ),
-                            ),
-                          ],
-                        ),
                       ],
                     ),
                   ),

@@ -1,33 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/views/widgets/text_util.dart';
 
 Widget buildCard(int index) {
   List donuts = [
-    // [ donutFlavor, donutPrice, donutColor, imageName ]
-    "https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Ym9va3xlbnwwfHwwfHw%3D&w=1000&q=80",
-    "https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Ym9va3xlbnwwfHwwfHw%3D&w=1000&q=80",
-    "https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Ym9va3xlbnwwfHwwfHw%3D&w=1000&q=80",
-    "https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Ym9va3xlbnwwfHwwfHw%3D&w=1000&q=80",
-    "https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Ym9va3xlbnwwfHwwfHw%3D&w=1000&q=80",
-    "https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Ym9va3xlbnwwfHwwfHw%3D&w=1000&q=80",
-    "https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Ym9va3xlbnwwfHwwfHw%3D&w=1000&q=80",
-    "https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Ym9va3xlbnwwfHwwfHw%3D&w=1000&q=80",
+    "assets/images/one.png",
+    "assets/images/two.png",
+    "assets/images/three.png",
+    "assets/images/four.png",
+    "assets/images/one.png",
+    "assets/images/two.png",
+    "assets/images/three.png",
+    "assets/images/four.png",
   ];
   List text = [
-    "Ice Cream",
-    "Strawberry",
-    "Grape Ape",
-    "Choco",
-    "Ice Cream",
-    "Strawberry",
-    "Grape Ape",
-    "Choco",
+    "Haircare",
+    "Skincare",
+    "Lip Stick",
+    "Nail Art",
+    "Haircare",
+    "Skincare",
+    "Lip Stick",
+    "Nail Art",
   ];
   return Column(
     mainAxisSize: MainAxisSize.min,
     children: [
       ClipRRect(
         borderRadius: BorderRadius.circular(20),
-        child: Image.network(
+        child: Image.asset(
           donuts[index],
           height: 90,
           width: 90,

@@ -25,10 +25,20 @@ class SignUpScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+          leading: IconButton(
+            icon: const Icon(
+              Icons.arrow_back,
+              color: Colors.black,
+              size: 30,
+            ),
+            onPressed: () {
+              Get.back();
+            },
+          ),
           backgroundColor: Colors.white,
           elevation: 0,
         ),
-        backgroundColor: context.theme.scaffoldBackgroundColor,
+        // backgroundColor: context.theme.scaffoldBackgroundColor,
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -41,29 +51,26 @@ class SignUpScreen extends StatelessWidget {
                     key: fromKey,
                     child: Column(
                       children: [
-                        Row(
-                          children: const [
-                            TextUtils(
-                              fontSize: 28,
-                              fontWeight: FontWeight.w500,
-                              text: "SIGN",
-                              color: Colors.black,
-                              underLine: TextDecoration.none,
-                            ),
-                             SizedBox(
-                              width: 3,
-                            ),
-                            TextUtils(
-                              fontSize: 28,
-                              fontWeight: FontWeight.w500,
-                              text: "UP",
-                              color: Colors.green,
-                              underLine: TextDecoration.none,
-                            ),
-                          ],
+                        const TextUtils(
+                          fontSize: 40,
+                          fontWeight: FontWeight.bold,
+                          text: "Create new Account",
+                          color: Color(0xff222B45),
+                          underLine: TextDecoration.none,
                         ),
                         const SizedBox(
-                          height: 50,
+                          height: 10,
+                        ),
+                        const TextUtils(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                          text:
+                              "Please type full information below and we can create your account",
+                          color: Color(0xff8992A3),
+                          underLine: TextDecoration.none,
+                        ),
+                        const SizedBox(
+                          height: 35,
                         ),
                         AuthTextFromField(
                           controller: nameController,
@@ -76,9 +83,9 @@ class SignUpScreen extends StatelessWidget {
                               return null;
                             }
                           },
-                          prefixIcon: Image.asset('assets/images/user.png'),
-                          suffixIcon: const Text(""),
-                          hintText: 'User Name',
+                          // prefixIcon: Image.asset('assets/images/user.png'),
+                          // suffixIcon: const Text(""),
+                          hintText: 'FullName',
                         ),
                         const SizedBox(
                           height: 20,
@@ -93,9 +100,9 @@ class SignUpScreen extends StatelessWidget {
                               return null;
                             }
                           },
-                          prefixIcon: Image.asset('assets/images/email.png'),
-                          suffixIcon: const Text(""),
-                          hintText: 'Email',
+                          // prefixIcon: Image.asset('assets/images/email.png'),
+                          // suffixIcon: const Text(""),
+                          hintText: 'Your Email',
                         ),
                         const SizedBox(
                           height: 20,
@@ -114,8 +121,8 @@ class SignUpScreen extends StatelessWidget {
                                   return null;
                                 }
                               },
-                              prefixIcon: Image.asset('assets/images/lock.png'),
-                              hintText: 'Password'.tr,
+                              // prefixIcon: Image.asset('assets/images/lock.png'),
+                              hintText: 'Password',
                               suffixIcon: IconButton(
                                 onPressed: () {
                                   controller.visibility();
@@ -135,6 +142,17 @@ class SignUpScreen extends StatelessWidget {
                         ),
                         const SizedBox(
                           height: 20,
+                        ),
+                        AuthTextFromField(
+                          controller: emailController,
+                          obscureText: false,
+                          validator: (value) {},
+                          suffixIcon: Icon(Icons.date_range_outlined),
+                          // suffixIcon: const Text(""),
+                          hintText: 'Date Of Birth',
+                        ),
+                        const SizedBox(
+                          height: 30,
                         ),
                         GetBuilder<AuthController>(
                           builder: (_) {
@@ -160,30 +178,47 @@ class SignUpScreen extends StatelessWidget {
                         const SizedBox(
                           height: 20,
                         ),
+                        const TextUtils(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                          text: "Or connect with",
+                          color: Colors.black,
+                          underLine: TextDecoration.none,
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const TextUtils(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              text: "Already have an Account? ",
-                              color: Colors.black,
-                              underLine: TextDecoration.none,
+                            InkWell(
+                              onTap: () {},
+                              child: Image.asset(
+                                "assets/images/github.png",
+                                width: 40,
+                                height: 40,
+                              ),
                             ),
                             const SizedBox(
-                              width: 10,
+                              width: 15,
                             ),
                             InkWell(
-                              onTap: () {
-                                Get.to(() => LoginScreen());
-                              },
-                              child: const TextUtils(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                text: "Log In",
-                                color: Colors.blue,
-                                underLine: TextDecoration.none,
+                              onTap: () {},
+                              child: Image.asset(
+                                "assets/images/facebook.png",
                               ),
+                            ),
+                            const SizedBox(
+                              width: 15,
+                            ),
+                            InkWell(
+                              onTap: () {},
+                              child: Image.asset(
+                                "assets/images/google.png",
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 20,
                             ),
                           ],
                         ),
@@ -192,7 +227,6 @@ class SignUpScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              
             ],
           ),
         ),

@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/views/widgets/text_util.dart';
 import 'package:get/get.dart';
 
-
-
 class AuthButton extends StatelessWidget {
   final String text;
   final Function() onPressed;
@@ -19,7 +17,10 @@ class AuthButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-       // primary: Get.isDarkMode ? pinkClr : mainColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        primary: const Color(0xffF3651F),
         minimumSize: const Size(360, 50),
       ),
       child: TextUtils(
