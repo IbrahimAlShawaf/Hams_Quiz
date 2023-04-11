@@ -29,18 +29,17 @@ class _MyHomeScreenState extends State<MyHomeScreen>
     ["Choco", "95", Colors.brown, "assets/images/chocolate_donut.png"],
   ];
 
-
   @override
   void initState() {
     super.initState();
     _tabController = TabController(length: 3, vsync: this);
   }
 
-  @override
-  void dispose() {
-    _tabController.dispose();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   _tabController.dispose();
+  //   super.dispose();
+  // }
 
   final controller = Get.find<AuthController>();
 
@@ -111,38 +110,46 @@ class _MyHomeScreenState extends State<MyHomeScreen>
             child: TabBarView(
               controller: _tabController,
               children: [
-                Container(
-                  width: 100,
-                  height: 100,
-                  child: Image.network(
-                    'https://scontent.fgza9-1.fna.fbcdn.net/v/t1.6435-9/117729858_1650711601771304_3832706372464906444_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=iduN0a63TssAX-x8XEG&_nc_ht=scontent.fgza9-1.fna&oh=00_AfD0OjIsNR_pGlWHPolAf1rTb_14uHeQomlWoCK8QOyH9Q&oe=645B7D69',
-                    fit: BoxFit.cover,
-                  ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Image.network(
+                          "https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Ym9va3xlbnwwfHwwfHw%3D&w=1000&q=80",
+                          fit: BoxFit.cover)),
                 ),
-                Container(
-                  width: 100,
-                  height: 100,
-                  child: Image.network(
-                    'https://scontent.fgza9-1.fna.fbcdn.net/v/t1.6435-9/117729858_1650711601771304_3832706372464906444_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=iduN0a63TssAX-x8XEG&_nc_ht=scontent.fgza9-1.fna&oh=00_AfD0OjIsNR_pGlWHPolAf1rTb_14uHeQomlWoCK8QOyH9Q&oe=645B7D69',
-                    fit: BoxFit.cover,
-                  ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Image.network(
+                          "https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Ym9va3xlbnwwfHwwfHw%3D&w=1000&q=80",
+                          fit: BoxFit.cover)),
                 ),
-                Container(
-                  width: 100,
-                  height: 100,
-                  child: Image.network(
-                    'https://scontent.fgza9-1.fna.fbcdn.net/v/t1.6435-9/117729858_1650711601771304_3832706372464906444_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=iduN0a63TssAX-x8XEG&_nc_ht=scontent.fgza9-1.fna&oh=00_AfD0OjIsNR_pGlWHPolAf1rTb_14uHeQomlWoCK8QOyH9Q&oe=645B7D69',
-                    fit: BoxFit.cover,
-                  ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Image.network(
+                          "https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Ym9va3xlbnwwfHwwfHw%3D&w=1000&q=80",
+                          fit: BoxFit.cover)),
                 ),
               ],
             ),
           ),
-          TabPageSelector(
-            indicatorSize: 15,
-            color: Colors.amber.shade900,
-            selectedColor: Colors.yellowAccent,
-            controller: _tabController,
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: 10,
+            child: Center(
+              child: TabPageSelector(
+                controller: _tabController,
+                selectedColor: Colors.black,
+                indicatorSize: 14,
+                // color: Colors.purple,
+                borderStyle: BorderStyle.solid,
+              ),
+            ),
           ),
           Expanded(
             child: GridView.builder(

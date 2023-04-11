@@ -8,6 +8,8 @@ import 'package:get/get.dart';
 
 import 'package:get_storage/get_storage.dart';
 
+import 'controller/auth_controller.dart';
+
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,13 +17,11 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
+    final controller = Get.put(AuthController());
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
